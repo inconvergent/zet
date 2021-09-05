@@ -1,0 +1,1 @@
+/home/anders/.dotfiles/bin/fn

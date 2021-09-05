@@ -1,0 +1,7 @@
+*.egg-*
+*tmp
+*.*~
+*.pyc
+build
+dist
+.nvimlog
