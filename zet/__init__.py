@@ -13,7 +13,6 @@ Usage:
 
 
 Options:
-  --hen-list  list all tokesn
   -h --help   show this screen.
   --version   show version.
 
@@ -32,14 +31,11 @@ from zet.zet import Zet
 
 def main():
   args = docopt(__doc__, version='zet 0.0.1')
-  print(args)
+  zet = Zet(args['<adr>'])
 
   try:
-
-    zet = Zet(args['<adr>'])
     for o in zet.pin_all():
       pp(o)
-
   except ValueError as e:
     print('err: ' + str(e), file=stderr)
     pexit(1)

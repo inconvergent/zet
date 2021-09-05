@@ -7,13 +7,13 @@ CONTRACT_TOKEN_URL = f'https://api.better-call.dev/v1/contract/mainnet/{CONTRACT
 
 
 def _bcd(url):
-  r = requests.get(url)
+  r = requests.get(url, params={'sort': 'asc'})
   while True:
     jsn = r.json()
     for o in jsn['transfers']:
       yield o
     if last_id := jsn.get('last_id', None):
-      r = requests.get(url, params={'last_id': last_id})
+      r = requests.get(url, params={'last_id': last_id, 'sort': 'asc'})
     else:
       return
 
@@ -63,6 +63,6 @@ class Zet:
       title = info['name']
       print(f'objkt# {token_id}: {title}')
       for cid in get_cids(info):
-        self.pinata.pin(cid, title)
+        yield self.pinata.pin(cid, title)
 
 

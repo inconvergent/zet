@@ -37,6 +37,5 @@ class Pinata:
     r = requests.post(PIN_BY_HASH,
                       json=pin_request_body(cid, name),
                       headers=self.headers)
-    pp(r.json())
-    return
+    return r.json()
 

@@ -1,2 +1,2 @@
-# ZET - tezos tokes
+# ZET - tezos tokens
 
