@@ -64,11 +64,13 @@ def main():
   args = docopt(__doc__, version='zet 0.0.1')
   print(args)
 
-  try:
+  #  try:
 
-    zet = Zet(args['<adr>'])
-    for o in zet.transfers():
-      pp(o)
+  zet = Zet(args['<adr>'])
+  #  for o in zet.transfers():
+  #    pp(o)
+  for o in zet.adr_tokens():
+    pp(o)
 
 
     #  print(zet)
@@ -76,12 +78,12 @@ def main():
     #  for r in head_tail(res, head=args['-N'], tail=args['-n'],
     #                     reverse=args['-i']):
     #    print(r)
-  except ValueError as e:
-    print('err: ' + str(e), file=stderr)
-    pexit(1)
-  except Exception as e:
-    print_exc(file=stderr)
-    pexit(2)
+  #  except ValueError as e:
+  #    print('err: ' + str(e), file=stderr)
+  #    pexit(1)
+  #  except Exception as e:
+  #    print_exc(file=stderr)
+  #    pexit(2)
 
 
 if __name__ == '__main__':
